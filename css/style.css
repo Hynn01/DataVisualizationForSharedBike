@@ -1,0 +1,351 @@
+﻿@charset "utf-8";
+/*container0*/
+			.axis path,
+			.axis line{
+				fill:none;
+				stroke:green;
+				shape-rendering:crispEdges;
+			}
+			.axis text{
+				font-family:sans-serif;
+				font-size:12px;
+				fill:green;
+			}
+			
+			.tooltip{
+				position:absolute;
+				width:80;
+				height:25;
+				font-family: simsun;  
+				font-size: 17px; 
+				fill:black;
+				text-align: center;  
+				border-style: solid;   
+				border-width: 1px;  
+				background-color: white;  
+				border-radius: 5px;  
+				}  
+				
+/*container1*/
+p{ font-size:20px;}
+#r{ margin-right:0; float:left;width:50%;}
+#l{ margin-left:0; float:right;width:50%;}
+/*container2*/
+			  .forceLine {
+				 stroke: #444 ;
+				 stroke-width: 1 ;
+			  }
+			  
+			  .forceCircle {
+				 stroke: black ;
+				 stroke-width: 1;
+			  }
+			  
+			  .forceText {
+				 fill: black ;
+				 text-anchor: middle ;
+				 font-size: 17;
+				 font-family: arial;
+			  }
+/*container3（重）*/
+
+/*container4（无）*/
+
+/*container5（重）*/
+/*--------------------上面是图表中的css-----------------------下面是网页中的css------------------------*/
+html,body {
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+}
+
+body {
+	background-color:#EEE;
+}
+
+header {
+	left:8%;
+	width:100%;
+	height:60%;
+	background-image:;
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center top;
+	position:relative;
+	box-shadow:0px 0px 30px 0px #CCCCCC;
+    -moz-box-shadow:0px 0px 30px 0px #CCCCCC;
+    -webkit-box-shadow:0px 0px 30px 0px #CCCCCC;
+}
+
+.shadow {
+	width:100%;
+	height:40%;
+	background: url(../img/head_top_mask.png) repeat-x;
+	position:fixed;
+	top:0;
+	left:0;
+}
+
+.title {
+	margin:0 auto;
+	width:100%;
+	min-width:500px;
+	height:100%;
+	max-width:980px;
+	position:relative;
+    background-color:rgba(0,0,0,0.25);
+}
+
+.title h1 {
+	margin:0;
+	color:#FFF;
+	font-family:"寰蒋闆呴粦", "榛戜綋", "绛夌嚎", "Microsoft YaHei UI", "Microsoft YaHei UI Light", "寰蒋闆呴粦 Light", "绛夌嚎 Light", "Microsoft YaHei";
+	position:absolute;
+	left:5%;
+	top:30%;
+	font-size:48px;
+	font-weight:normal;
+    text-shadow: 2px 3px 2px rgba(0,0,0,0.15);
+}
+
+.title p {
+	margin-top:80px;
+	color:#FFF;
+	color:rgba(255,255,255,0.90);
+	font-family:"Microsoft YaHei UI Light", "寰蒋闆呴粦 Light", "绛夌嚎 Light", "Microsoft YaHei";
+	position:absolute;
+	left:5%;
+	top:31%;
+	line-height:1.4;
+	font-size:26px;
+    font-weight: 500;
+	word-wrap:break-word;
+    text-shadow: 2px 3px 2px rgba(0,0,0,0.3);
+}
+
+.fixTitle {
+	width:100%;
+	position:fixed;
+	z-index:9999;
+	top:-5em;
+    background: #373737;
+    background: -webkit-linear-gradient(top,#373737,#595959);
+    background: linear-gradient(to bottom,#373737,#595959);
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.25), inset 0px 1px 0px rgba(255,255,255,0.05);
+	transition: all 0.1s ease-in;
+	-moz-transition: all 0.1s ease-in;
+	-webkit-transition: all 0.1s ease-in;
+	-o-transition: all 0.1s ease-in;
+	box-shadow:0px 0px 30px 0px #CCCCCC;
+    -moz-box-shadow:0px 0px 30px 0px #CCCCCC;
+    -webkit-box-shadow:0px 0px 30px 0px #CCCCCC;
+}
+
+.fixTitle-text {
+	width:100%;
+	max-width:980px;
+	margin:0 auto;
+}
+
+.fixTitle-text h1 {
+	width:100%;
+	margin:0;
+	margin-left:0.6em;
+	text-align:left;
+	font-size:2em;
+	line-height:2.2em;
+	font-family:"Microsoft YaHei UI","寰蒋闆呴粦", "榛戜綋", "绛夌嚎",  "Microsoft YaHei UI Light", "寰蒋闆呴粦 Light", "绛夌嚎 Light", "Microsoft YaHei";
+	color:#FFF;
+}
+
+section {
+	width:100%;
+	max-width:980px;
+	margin:0 auto;
+	padding-bottom:0;
+	background-color:#FFF;
+	box-shadow:0px 0px 30px #CCCCCC;
+    -moz-box-shadow:0px 0px 30px #CCCCCC;
+    -webkit-box-shadow:0px 0px 30px #CCCCCC;
+}
+
+.line {
+	margin:0 auto;
+	padding:2em;
+	width:86%;
+	border:2px solid #EEE;
+	border-left:0;
+	border-right:0;
+}
+
+.line p {
+	text-align:center;
+	margin:0 auto;
+	margin-top:1em;
+	font-size:12px;
+	color:#AAA;
+	font-family:"Microsoft YaHei UI Light", "寰蒋闆呴粦 Light", "绛夌嚎 Light", "Microsoft YaHei";
+}
+
+.first {
+	border: 0;
+}
+
+section h1{
+	font-size:3em;
+	padding:50px 20px 0 80px;(上右下左)
+	color:#ff9900;
+}
+
+section h3 {
+	margin:0 3em;
+	padding:2.2em 0 0 0;
+	text-align:left;
+	font-size:1.8em;
+	font-family:"Microsoft YaHei UI Light", "寰蒋闆呴粦 Light", "绛夌嚎 Light", "Microsoft YaHei";
+}
+
+section h3 span { 
+	color:#CB4E0D;
+}
+
+section h5 {
+	margin:0 3em;
+	text-align:left;
+	font-size:1.2em;
+	font-family:"Microsoft YaHei UI Light", "寰蒋闆呴粦 Light", "绛夌嚎 Light", "Microsoft YaHei";
+	color:#AAA;
+	text-indent:3em;
+}
+
+section h4 {
+	margin:0 auto;
+	padding:2.2em 0 0.2em 0;
+	text-align:center;
+	font-size:1.2em;
+	font-family: "Microsoft YaHei";
+}
+
+section p {
+	word-wrap:break-word;
+	text-indent:2em;
+	margin:2.2em auto;
+	width:82%;
+	line-height:1.8;
+	letter-spacing:1.2;
+	font-family:"Microsoft YaHei UI Light", "寰蒋闆呴粦 Light", "绛夌嚎 Light", "Microsoft YaHei";
+}
+
+section img {
+	width:82%;
+	margin:3em auto 1em auto;
+	display:block;
+	box-shadow:0px 0px 5px #CCCCCC;
+    -moz-box-shadow:0px 0px 5px #CCCCCC;
+    -webkit-box-shadow:0px 0px 5px #CCCCCC;
+	padding:1em;
+}
+
+.subtitle {
+	margin:0 auto;
+	padding:0;
+	font-size:12px;
+	color:#BBB;
+	line-height:1.4;
+	text-align:center;
+	font-family: "寰蒋闆呴粦", "Microsoft YaHei";
+}
+
+/*.chart {
+	width:1000px;
+	height:560px;
+	margin:0 auto;
+	margin-top:0.5em;
+}*/
+
+.chartAlert{
+	padding:1em 0;
+}
+
+.chartAlert p {
+	margin-top:0;
+	line-height:1.5;
+}
+
+#container0 {
+	width:1000px;
+	height:700px;
+	margin-top:2em;
+}
+
+#container1 {
+	width:1000px;
+	height:700px;
+	margin-top:3em;
+	margin-bottom:6px;
+}
+
+#container2 {
+	width:1000px;
+	height:650px;
+	margin-top:3em;
+	margin-bottom:6px;
+}
+
+#container3 {
+	width:1000px;
+	height:560px;
+	margin-top:3em;
+	margin-bottom:6px;
+}
+
+#container4 {
+	width:1000px;
+	height:560px;
+	margin-top:3em;
+	margin-bottom:6px;
+}
+
+#container5 {
+	width:1000px;
+	height:560px;
+	margin-top:3em;
+	margin-bottom:6px;
+}
+
+.iframe {
+	width:82%;
+	height:480px;
+	margin-top:1.5em;
+	margin-bottom:6px;
+	border:none;
+	overflow: hidden;
+}
+
+.teamMenber {
+	margin:0 auto;
+	text-align:center;
+	padding:2em 0 0 0;
+}
+
+.teamMenber span {
+	font-weight:bold;
+	font-size:1.4em;
+	line-height:2.4em;
+}
+
+.bottomVideo {
+	width:100%;
+	margin-top: 100px;
+	display: block;
+	background-image:url(../img/video-BG.jpg);
+	overflow:hidden;
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:bottom;
+}
+
+.bottomVideo video {
+	width:100%;
+}

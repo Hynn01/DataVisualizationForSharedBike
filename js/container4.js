@@ -1,0 +1,80 @@
+//词云图
+/*<html>
+	<meta charset="utf-8">
+	<head>
+	</head>
+	<body>
+		<script>*/
+			var w=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;
+			var h=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight;
+		/*</script>
+		<script src="d3.min.js"></script>
+		<script src="d3.layout.cloud.js"></script>
+		<script>*/
+			//var dom = document.getElementById("container4");
+			//var myChart = d3.init(dom);
+			var fill=d3.scale.category20();//定义fill为颜色比例尺
+			var cloud=d3.layout.cloud().size([950,530])//定义词云图的大小
+			  .words(["又一共享单车倒闭","倒闭","摩拜","共享单车怎么用","摩拜单车","共享单车的盈利模式","ofo","盈利","共享经济","共享汽车","经济","自燃","共享单车倒闭","共享电单车自燃","作文","共享单车不怕被偷吗","模式","关于共享单车的议论文","ofo共享单车","悟空单车","共享单车有哪些","论文","押金","被偷","收费","老人","强占","垃圾成山","共享雨伞","共享单车的利弊","共享模式","共享经济","红包猎人","被上私锁","共享充电宝","小蓝单车","共享单车花式载人","宝马撞飞共享单车","盗共享单车当礼物","直播扔共享单车","共享单车概念股","成都共享单车被毁","优拜单车","加装","成都","骑呗单车","自行车","共享电动车","膜拜","共享单车被扔进黄浦江" ].map(function(d,i){
+				return {text:d,size:10+(50-i)*1.2};
+			  }))//定义词云图的数据和数据表现方法
+			  .padding(5)//词周围的边缘距离
+			  .rotate(function(){return ~~(Math.random()*4)*45;})//定义词条的旋转角度
+			  .font("Impact")//定义词条的字体样式
+			  .fontSize(function(d){return d.size;})//定义词条的字体大小
+			  .timeInterval(10);//定义时间间隔
+			  
+			  cloud.on("end",draw)//为事件增加监听器，第一个参数为监听的事件，第二个参数为监听到事件后响应的内容（为一个函数）（当数据转换完成的时候开始调用函数）
+			  .start();//开始在页面上绘制
+			  
+			function draw(words){//定义一个名字叫做draw的函数，它的形参是words
+			var svg=d3.select("#container4")//选择网页中的body
+			  .append("svg") //在body中添加一个svg
+			  .attr("width",950)//svg的宽是1200
+			  .attr("height",530);//svg的高是600
+			  
+			var text1=svg.append("g")//在svg中添加一个空选择集g（body中添加svg，svg中添加g，应为嵌套关系）
+			  .attr("transform","translate(475 ,265)")//***transform属性允许我们对元素进行缩放、旋转、移动或倾斜等转换;translate（x,y）用于平移元素
+			  .selectAll("text")//选择所有的text
+			  .data(words)//绑定传入的参数words
+			  .enter()//进入
+			  .append("text")//添加“text”元素
+              .transition()//启动过渡效果
+			  .duration(800)
+			  .ease("bounce")//弹跳出场
+			  .delay(function(d,i){
+				return 200*i;
+			  })
+			  .attr("font-size",function(d){return d.size+"px";})//定义text的大小
+			  .attr("font-family","Impact")//定义text的字体
+			  .attr("fill",function(d,i){return fill(i);})//定义text的颜色（fill在前面有定义过）
+			  .attr("text-anchor","middle")//定义text的中心位置
+			  .attr("transform",function(d){
+			  return "translate("+[d.x,d.y]+")rotate("+d.rotate +")"
+			  })//定义text在svg中的相对位置
+			  .text(function(d){return d.text;});//获取text，到达绑定的数据，输出文字
+			  
+			svg.selectAll("text")
+			   .on("mouseover",function(d,i){
+					d3.select(this)
+				      .transition()
+				      //.attr("transform",function(d){
+				      //return "translate(150,20 )rotate(0)"
+				      //})
+				      .attr("fill","red")
+				      .attr("font-size",function(d){return (d.size+10)+"px";});
+			  })
+			   .on("mouseout",function(d,i){
+					d3.select(this)
+				      .transition()
+				      .attr("transform",function(d){
+						return "translate("+[d.x,d.y]+")rotate("+d.rotate +")"
+						})
+					  .attr("fill",function(d,i){return fill(Math.random()*10);})
+					  .attr("font-size",function(d){return d.size+"px";});
+			  }); 
+			  
+			}
+		/*</script>
+	</body>
+</html>*/
